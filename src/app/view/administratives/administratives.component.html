@@ -1,0 +1,215 @@
+<div class="card-container">
+  <h2 class="title-text card">Administrativas</h2>
+
+  <div class="administratives-container card my-4">
+    <div class="input-btn">
+      <button
+        type="button"
+        class="btn bg-blue-4 btn-up-dow c-white"
+        (click)="modifyDisplay()"
+      >
+      <i class="fas fa-file-upload m-2"></i>
+        <span>Upload Layouts</span>
+      </button>
+
+      <div id="divUp" style="display: none">
+        <div id="bar" class="progress mt-2">
+          <div
+            class="progress-bar progress-bar-striped progress-bar-animated"
+            role="progressbar"
+            [style.width]="progress + '%'"
+          >
+            <span>Carregando...</span>
+          </div>
+        </div>
+        <div>
+          <label for="customFile" class="bg-blue-4 my-4"
+            >Escolher arquivos - {{ newSetFileListUp.length }}</label
+          >
+          <input
+            type="file"
+            class="form-control"
+            id="customFile"
+            (change)="onFileChanged($event)"
+            class="input-file"
+            multiple="multiple"
+          />
+          <div class="input-list-li">
+            <li
+              *ngFor="let file of newSetFileListUp; let i = index"
+              class="alert alert-dismissible list-file bg-blue-4 mb-2"
+              role="alert"
+              title="{{ file.name }}"
+            >
+              {{ file.name }}
+              <button
+                type="button"
+                class="btn-close"
+                (click)="removeItemList(i)"
+                data-bs-dismiss="alert"
+                aria-label="Close"
+              ></button>
+            </li>
+          </div>
+        </div>
+        <div>
+          <button
+            type="button"
+            class="btn bg-blue-4 c-white"
+            (click)="onUpload()"
+            [disabled]="!files"
+          >
+            Subir Layouts
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- FIM UPLOAD LAYOUTS-->
+
+    <!-- INICIO DOWNLOAD RELATÓRIO-->
+    <div class="input-btn">
+      <button
+        type="button"
+        class="btn btn-secondary btn-up-dow"
+        (click)="exportProcessResultCsv()"
+      >
+      <i class="fas fa-file-download m-2"></i>
+        <span>Download Relatório</span>
+      </button>
+    </div>
+    <!-- FIM DOWNLOAD RELATÓRIO-->
+    <!-- INICIO UPLOAD RELATÓRIO ATUALIZADO-->
+    <div class="input-btn">
+      <button
+        type="button"
+        class="btn bg-orange btn-up-dow c-white"
+        (click)="modifyDisplayUploadNewRel()"
+      >
+      <i class="fas fa-file-upload m-2"></i>
+        <span>Upload Relatório Atualizado</span>
+      </button>
+      <div id="divUpRel" style="display: none">
+        <div id="bar" class="progress mt-2">
+          <div
+            class="progress-bar progress-bar-striped progress-bar-animated"
+            role="progressbar"
+            [style.width]="progress + '%'"
+          >
+            <span>Carregando...</span>
+          </div>
+        </div>
+        <div>
+          <label for="customFile-2" class="bg-orange my-4"
+            >Escolher arquivos - {{ newSetFileListAt.length }}</label
+          >
+          <input
+            type="file"
+            class="form-control"
+            id="customFile-2"
+            (change)="onFileReportChanged($event)"
+            class="input-file"
+            multiple="multiple"
+          />
+          <div class="input-list-li">
+            <li
+              *ngFor="let file of newSetFileListAt; let i = index"
+              class="alert alert-dismissible list-file bg-orange"
+              role="alert"
+              title="{{ file.name }}"
+            >
+              {{ file.name }}
+              <button
+                type="button"
+                (click)="removeItemListAt(i)"
+                class="btn-close"
+                data-bs-dismiss="alert"
+                aria-label="Close"
+              ></button>
+            </li>
+          </div>
+          <!-- <li class="input-file" for="customFile">{{selectedFileStrReport}}</li> -->
+        </div>
+
+        <div class="mt-10">
+          <button
+            type="button"
+            class="btn bg-orange c-white"
+            (click)="onUploadNewReport()"
+            [disabled]="!files"
+          >
+            Subir Layouts!
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- FIM UPLOAD RELATÓRIO ATUALIZADO-->
+    <!-- INICIO UPLOAD LISTAGEM NCM-->
+
+    <div class="input-btn">
+      <button
+        type="button"
+        class="btn bg-green btn-up-dow c-white"
+        (click)="modifyDisplayUploadListNcm()"
+      >
+        <i class="fas fa-file-upload m-2"></i>
+        <span>Upload Listagem NCM</span>
+      </button>
+      <div id="divUpListNcm" style="display: none">
+        <div id="bar" class="progress mt-2">
+          <div
+            class="progress-bar progress-bar-striped progress-bar-animated"
+            role="progressbar"
+            [style.width]="progress + '%'"
+          >
+            <span>Carregando...</span>
+          </div>
+        </div>
+        <div>
+          <label for="customFile-3" class="bg-green my-4"
+            >Escolher arquivos - {{ newSetFileListNcm.length }}</label
+          >
+          <input
+            type="file"
+            class="form-control"
+            id="customFile-3"
+            (change)="onFileListNcm($event)"
+            class="input-file"
+            multiple="multiple"
+          />
+          <div class="input-list-li">
+            <li
+              *ngFor="let file of newSetFileListNcm; let i = index"
+              class="alert alert-dismissible list-file bg-green"
+              role="alert"
+              title="{{ file.name }}"
+            >
+              {{ file.name }}
+              <button
+                type="button"
+                (click)="removeItemListNcm(i)"
+                class="btn-close"
+                data-bs-dismiss="alert"
+                aria-label="Close"
+              ></button>
+            </li>
+          </div>
+        </div>
+
+        <div>
+          <button
+            type="button"
+            class="btn bg-green c-white"
+            (click)="onUploadListNCM()"
+            [disabled]="!files"
+          >
+            Subir Layouts!
+          </button>
+        </div>
+      </div>
+    </div>
+    <br />
+    <!-- FIM UPLOAD LISTAGEM NCM-->
+  </div>
+</div>
+<app-footer class="mt-4"></app-footer>

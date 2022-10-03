@@ -1,0 +1,81 @@
+@import url("../../../style.css");
+
+.card-container {
+  padding: 3rem;
+}
+.result-container {
+  border: none;
+}
+
+i {
+  font-size: 1.5rem;
+}
+
+ngb-pagination ::ng-deep ul > li:not(.active) > a {
+  color: #8db6f6;
+
+}
+
+ngb-pagination ::ng-deep ul > li.active > a {
+  z-index: 3;
+  color: #fff;
+  background-color: #8db6f6 !important;
+  border-color: #8db6f6 !important;
+}
+
+.form-control:focus {
+  box-shadow: none;
+}
+
+.input {
+  gap: 1rem;
+}
+
+.input-datepicker {
+  width: 14.5rem;
+}
+
+.btn-list {
+  border-color: #8db6f6;
+  background-color: #8db6f6;
+  color: #fff;
+}
+
+.btn:focus {
+  box-shadow: none;
+}
+
+.btn-list-dark {
+  border-color: #56c2b7;
+  background-color: #56c2b7;
+  border: none;
+  color: #fff;
+}
+
+.btn-list-success {
+  border-color: #83c5be;
+  background-color: #83c5be;
+  color: #fff;
+}
+
+.message-success {
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+.p-msg {
+  padding: 0.8rem 0px;
+}
+
+.page-item.active .page-link {
+  z-index: 3;
+  color: #fff;
+  background-color: #8db6f6 !important;
+  border-color: #8db6f6 !important;
+}
+
+.active > .page-link {
+  color: #fff;
+  background-color: #8db6f6 !important;
+  border-color: #8db6f6 !important;
+}

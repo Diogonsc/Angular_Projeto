@@ -1,0 +1,119 @@
+<div class="card-container">
+  <h2 class="title-text card">Apurações de Bonus & Onus</h2>
+
+  <div class="charts-container card py-4 my-4">
+    <div class="box-charts">
+      <div class="card-item-1 item py-4" style="background: #8db6f6">
+        <p href="#" class="text-white text-center">Base de Cálculo Bonus</p>
+        <hr />
+        <div *ngIf="temosDados; else localReference">
+          <div style="color: #fff; text-align: center; font-size: 200%">
+            {{ data[0].calcBaseBonus }}
+          </div>
+          <div *ngIf="loading">
+            <mat-spinner [diameter]="20" class="loading"></mat-spinner>
+          </div>
+        </div>
+        <ng-template #localReference> Nenhum dado foi retornado </ng-template>
+      </div>
+      <!---->
+      <div class="card-item-2 item py-4" style="background: #83c5be">
+        <p href="#" class="text-white text-center">PIS Bonus</p>
+        <hr />
+        <div *ngIf="temosDados; else localReference">
+          <div style="color: #fff; text-align: center; font-size: 200%">
+            {{ data[0].pisBonus }}
+          </div>
+          <div *ngIf="loading">
+            <mat-spinner [diameter]="20" class="loading"></mat-spinner>
+          </div>
+        </div>
+        <ng-template #localReference> Nenhum dado foi retornado </ng-template>
+      </div>
+      <div class="card-item-3 item py-4" style="background: #e63947be">
+        <p href="#" class="text-white text-center">Cofins Bonus</p>
+        <hr />
+        <div *ngIf="temosDados; else localReference">
+          <div style="color: #fff; text-align: center; font-size: 200%">
+            {{ data[0].cofinsBonus }}
+          </div>
+          <div *ngIf="loading">
+            <mat-spinner [diameter]="20" class="loading"></mat-spinner>
+          </div>
+        </div>
+        <ng-template #localReference> Nenhum dado foi retornado </ng-template>
+      </div>
+      <div class="card-item-4 item py-4" style="background: #e59a19">
+        <p class="text-white text-center">Base de Cálculo Onus</p>
+        <hr />
+        <div *ngIf="temosDados; else localReference">
+          <div style="color: #fff; text-align: center; font-size: 200%">
+            {{ data[0].calcBaseOnus }}
+          </div>
+          <div *ngIf="loading">
+            <mat-spinner [diameter]="20" class="loading"></mat-spinner>
+          </div>
+        </div>
+        <ng-template #localReference> Nenhum dado foi retornado </ng-template>
+      </div>
+      <div class="card-item-5 item py-4" style="background: #5e548e">
+        <p class="text-white text-center">Pis Onus</p>
+        <hr />
+        <div *ngIf="temosDados; else localReference">
+          <div style="color: #fff; text-align: center; font-size: 200%">
+            {{ data[0].pisOnus }}
+          </div>
+          <div *ngIf="loading">
+            <mat-spinner [diameter]="20" class="loading"></mat-spinner>
+          </div>
+        </div>
+        <ng-template #localReference> Nenhum dado foi retornado </ng-template>
+      </div>
+      <div class="card-item-6 item py-4" style="background: #7f5539">
+        <p class="text-white text-center">Cofins Onus</p>
+        <hr />
+        <div *ngIf="temosDados; else localReference">
+          <div style="color: #fff; text-align: center; font-size: 200%">
+            {{ data[0].cofinsOnus }}
+          </div>
+          <div *ngIf="loading">
+            <mat-spinner [diameter]="20" class="loading"></mat-spinner>
+          </div>
+        </div>
+        <ng-template #localReference> Nenhum dado foi retornado </ng-template>
+      </div>
+    </div>
+  </div>
+  <div class="charts-container card py-4 my-4">
+    <div class="card-item-5 item" style="color: #002366">
+      Contagem por tipo de taxa
+      <hr />
+      <canvas *ngIf="temosDados; else localReference" id="barChart"></canvas>
+    </div>
+  </div>
+  <div class="charts-container card canvas d-flex py-4 my-4">
+    <div class="canvas-item">
+      <div class="canvas-item-1 item" style="color: #002366">
+        Valor por tipo de taxa
+        <hr />
+        <div class="divChart text-center">
+          <canvas
+            *ngIf="temosDados; else localReference"
+            id="polarAreaChart"
+          ></canvas>
+        </div>
+      </div>
+      <div class="canvas-item-2 item" style="color: #002366">
+        Valor por tipo de taxa
+        <hr />
+        <div class="divChart text-center">
+          <canvas
+            *ngIf="temosDados; else localReference"
+            id="doughnutChart"
+          ></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer class="mt-4"></app-footer>

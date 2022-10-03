@@ -1,0 +1,67 @@
+@import url("../../../style.css");
+.card-container {
+  padding: 3rem;
+}
+
+.charts-container {
+  border: none;
+
+  hr {
+    border-color: #fff;
+    margin: 1rem 1rem;
+  }
+
+  .box-charts {
+    display: grid;
+    grid-template-columns: auto repeat(3, 3fr) auto;
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .item {
+    border-radius: 5px;
+    color: #fff;
+    text-align: center;
+  }
+
+  .canvas {
+    display: flex;
+  }
+
+  .card-item-1 {
+    grid-area: 1 / 2 / 2 / 3;
+  }
+  .card-item-2 {
+    grid-area: 1 / 3 / 2 / 4;
+  }
+  .card-item-3 {
+    grid-area: 1 / 4 / 2 / 5;
+  }
+  .card-item-4 {
+    grid-area: 2 / 2 / 3 / 3;
+  }
+  .card-item-5 {
+    grid-area: 2 / 3 / 3 / 4;
+  }
+  .card-item-6 {
+    grid-area: 2 / 4 / 3 / 5;
+  }
+
+  .canvas-item {
+    display: grid;
+    grid-template-columns: auto repeat(2, 3fr) auto;
+    grid-template-rows: 1fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+  }
+
+  .canvas-item-1 {
+    grid-area: 1 / 2 / 2 / 3;
+  }
+
+  .canvas-item-2 {
+    grid-area: 1 / 3 / 2 / 4;
+  }
+}

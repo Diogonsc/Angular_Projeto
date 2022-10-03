@@ -1,0 +1,152 @@
+<div class="card-container">
+  <app-alert-message></app-alert-message>
+  <h2 class="title-text card">Apurador de Créditos</h2>
+
+ <div class="result-container card card my-4">
+    <!-- Início datepicker-->
+    <div class="datepiker py-4">
+      <form #form="ngForm" class="d-flex flex-warp mt-10 input">
+        <div class="input-group input-datepicker">
+          <input
+            class="form-control"
+            id="dataInicial"
+            placeholder="Data Inicial"
+            name="dateStart"
+            [(ngModel)]="dateStart"
+            (click)="d.toggle()"
+            ngbDatepicker
+            #d="ngbDatepicker"
+          />
+        </div>
+
+        <div class="input-group input-datepicker">
+          <input
+            class="form-control"
+            id="dataFinal"
+            placeholder="Data Final"
+            name="dateEnd"
+            [(ngModel)]="dateEnd"
+            (click)="c.toggle()"
+            ngbDatepicker
+            #c="ngbDatepicker"
+          />
+        </div>
+        <button
+          title="Filtrar"
+          id="filter"
+          class="btn btn-list"
+          (click)="formatDatepicker()"
+        >
+          Filtrar
+        </button>
+        <button
+          type="reset"
+          title="Limpar Filtro"
+          id="clearFilter"
+          class="btn btn-list-dark"
+          style="display: none"
+          (click)="clearFilterDatepicker()"
+        >
+          Limpar Filtro
+        </button>
+      </form>
+    </div>
+    <!-- Fim datepiker-->
+
+    <div class="btn-generateList my-10 d-flex justify-content-center my-4">
+      <div class="col-sm-3 d-flex justify-content-around ">
+        <button
+          type="button"
+          id="bonusEntrance"
+          class="btn btn-list"
+          (click)="generateList('bonusEntrance', '1')"
+        >
+          Bonus (Entrada)
+        </button>
+      </div>
+      <div class="col-sm-3 d-flex justify-content-around">
+        <button
+          type="button"
+          id="bonusExit"
+          class="btn btn-list"
+          (click)="generateList('bonusExit', '1')"
+        >
+          Bonus (Saída)
+        </button>
+      </div>
+      <div class="col-sm-3 d-flex justify-content-around">
+        <button
+          type="button"
+          id="onusEntrance"
+          class="btn btn-list"
+          (click)="generateList('onusEntrance', '1')"
+        >
+          Onus (Entrada)
+        </button>
+      </div>
+
+      <div class="col-sm-3 d-flex justify-content-around">
+        <button
+          type="button"
+          id="onusExit"
+          class="btn btn-list"
+          (click)="generateList('onusExit', '1')"
+        >
+          Onus (Saída)
+        </button>
+      </div>
+    </div>
+    <br />
+    <table class="table table-hover">
+      <thead class="thead thead-color">
+        <tr>
+          <th class="text-uppercase" scope="col"></th>
+          <th class="text-uppercase" scope="col">Cod Item</th>
+          <th class="text-uppercase" scope="col">NCM</th>
+          <th class="text-uppercase" scope="col">CST</th>
+          <th class="text-uppercase" scope="col">Layout</th>
+          <th class="text-uppercase" scope="col">Descrição item</th>
+          <th class="text-uppercase" scope="col">Tipo de taxa</th>
+          <th class="text-uppercase" scope="col">Valor total</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="temosDados">
+        <tr *ngFor="let row of dados.content">
+          <td class="td-color"></td>
+          <td class="td-color">{{ row.processResultId?.codItem }}</td>
+          <td class="td-color">{{ row.processResultId?.ncmNumber }}</td>
+          <td class="td-color">{{ row.processResultId?.cst_pis }}</td>
+          <td class="td-color">{{ row.processResultId?.insumos }}</td>
+          <td class="td-color">{{ row.processResultId?.descItem }}</td>
+          <td class="td-color">{{ row.taxType }}</td>
+          <td class="td-color">{{ row.totalItemValue }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="d-flex justify-content-center w-100 h-100 p-5" *ngIf="loading">
+      <mat-spinner></mat-spinner>
+    </div>
+    <div
+      class="d-flex justify-content-center w-100 h-100 p-5 color-text"
+      *ngIf="loading === false && temosDados === false"
+    >
+      Nenhum dado foi retornado
+    </div>
+    <div
+      class="d-flex justify-content-end p-10 bg-pagination"
+      *ngIf="loading === false"
+    >
+      <ngb-pagination
+        (pageChange)="pagChange()"
+        [collectionSize]="this.totalPages"
+        [(page)]="currentPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [ellipses]="false"
+        [boundaryLinks]="true"
+      >
+      </ngb-pagination>
+    </div>
+ </div>
+</div>
+<app-footer class="mt-4"></app-footer>

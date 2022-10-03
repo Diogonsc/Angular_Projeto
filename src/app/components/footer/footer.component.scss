@@ -1,0 +1,26 @@
+.footer {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  margin-right: 3rem;
+}
+
+
+.footer-text {
+  color: #001c52;
+  text-decoration: none;
+}
+
+.footer-text:hover {
+  color: #8db6f6;
+  cursor: pointer;
+}
+
+
+@media only screen and (max-width: 900px) {
+  .footer {
+    padding-bottom: 2rem;
+    position: fixed;
+    bottom: 0;
+  }
+}

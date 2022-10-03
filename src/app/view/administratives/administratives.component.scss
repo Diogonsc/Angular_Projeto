@@ -1,0 +1,122 @@
+@import url("../../../style.css");
+.card-container {
+  padding: 3rem;
+}
+.administratives-container {
+  border: none;
+}
+
+li {
+  list-style: none;
+}
+
+.container-home {
+  width: 69vw;
+  height: 82.5vh;
+  border-radius: 15px;
+  background-color: #ecf2fc;
+  margin-top: -1rem !important;
+  margin-left: -1rem;
+  padding-bottom: 2rem;
+}
+
+.input-btn {
+  margin: 40px 0px 0px 40px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.input-file {
+  margin: 10px 0px;
+}
+
+.message-success {
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+.p-msg {
+  padding: 0.8rem 0px;
+}
+
+.btn-up-dow {
+  width: 97%;
+}
+
+.btn-close {
+  width: 0.3rem;
+  height: 0.3rem;
+  padding: 3px;
+  margin-top: 0.3rem;
+  margin-right: 0.3rem;
+}
+
+.title-h3 {
+  color: #002366;
+  font-weight: bold;
+  margin: 30px 0px 0px 40px;
+}
+
+.list-file {
+  max-width: 55ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-top: 0;
+  padding-bottom: 0px;
+  margin: 0 0 0.3rem 0;
+}
+
+.input-list-li {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+label {
+  padding: 2px 5px;
+  width: 10rem;
+  border-radius: 5px;
+  color: #fff;
+  display: block;
+  text-align: center;
+  cursor: pointer;
+}
+
+.progress {
+  width: 97%;
+}
+
+/* Responsividade*/
+
+@media only screen and (max-width: 959px) {
+  .mat-card {
+    width: 80%;
+    height: 90vh;
+  }
+
+  .container-home {
+    width: 100%;
+    height: 90vh;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .mat-card {
+    width: 96%;
+    height: 86vh;
+    margin: 0.5rem;
+  }
+
+  .container-home {
+    width: 100%;
+    height: 86vh;
+  }
+}

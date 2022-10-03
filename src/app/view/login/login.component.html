@@ -1,0 +1,71 @@
+<div class="box-login bg-blue-4">
+  <div class="box-login-logo">
+    <div class="undraw-logo">
+      <img src="../../../assets/media/logos/undraw_Business-logo.svg" alt="" />
+    </div>
+    <app-footer class="footer"></app-footer>
+  </div>
+  <div class="box-login-form">
+    <div class="form" name="f1">
+      <div class="form-login">
+        <img src="../../../assets/Logotipo_BMS_branco.png" alt="" />
+
+        <form id="form">
+          <div class="form-group">
+            <input
+              type="email"
+              class="form-control"
+              name="userLogin.userEmail"
+              [(ngModel)]="requestLogin.userEmail"
+              placeholder="E-mail *"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="password" class="d-flex pass">
+              <input
+                [type]="hide ? 'password' : 'text'"
+                type="password"
+                class="form-control"
+                name="userLogin.userPassword"
+                [(ngModel)]="requestLogin.userPassword"
+                placeholder="Senha *"
+                required
+              />
+              <i
+                class="material-icons c-blue-3"
+                matSuffix
+                (click)="hide = !hide"
+                >{{ hide ? "visibility" : "visibility_off" }}</i
+              >
+            </label>
+          </div>
+
+          <div class="form-btn mt-5">
+            <button
+              type="submit"
+              class="btnSubmit center mx-2"
+              (click)="submitForm()"
+            >
+              Login
+            </button>
+
+            <button
+              type="submit"
+              class="btnSubmit center"
+              routerLink="'account'"
+            >
+              Cadastre-se
+            </button>
+          </div>
+          <div class="form-group mt-3">
+            <a routerLink="'forgotpassword'" class="ForgetPwd c-white" value="Login"
+              >Esqueceu a Senha?</a
+            >
+          </div>
+        </form>
+      </div>
+    </div>
+    <app-footer class="footer"></app-footer>
+  </div>
+</div>
